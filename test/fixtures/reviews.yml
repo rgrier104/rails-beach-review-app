@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  belongs_to: 
+  belongs_to: 
+  overall_rating: 1
+  overall_description: MyString
+  parking_rating: 1
+  parking_description: MyString
+  surfing_rating: 1
+  surfing_description: MyString
+  swimming: false
+  snorkeling: false
+  paddleboarding: false
+  sunrise: false
+  sunset: false
+
+two:
+  belongs_to: 
+  belongs_to: 
+  overall_rating: 1
+  overall_description: MyString
+  parking_rating: 1
+  parking_description: MyString
+  surfing_rating: 1
+  surfing_description: MyString
+  swimming: false
+  snorkeling: false
+  paddleboarding: false
+  sunrise: false
+  sunset: false
