@@ -19,6 +19,16 @@
     <br>
     <%= f.label :surfing_description %>
     <%= f.text_area :surfing_description %>
+    <br>
+
+    Good for:
+    Swimming? <%= f.check_box :swimming %>
+    Snorkeling? <%= f.check_box :snorkeling %>
+    Paddleboarding? <%= f.check_box :paddleboarding %>
+    Sunrise? <%= f.check_box :sunrise %>
+    Sunset? <%= f.check_box :sunset %>
+
+    <%= f.submit "Create Review" %>
 
 
 <% end %>
