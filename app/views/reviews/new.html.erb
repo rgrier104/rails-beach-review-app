@@ -7,7 +7,7 @@
 <!-- Nested form -->
     <p>Or create a new beach</p>
     
-        <%= f.fields_for :beach, @review.build_beach do |beach_fields| %>
+        <%= f.fields_for :beach do |beach_fields| %>
             <%= beach_fields.label :name %>
             <%= beach_fields.text_field :name %>
             <%= beach_fields.label :city %>
@@ -45,7 +45,7 @@
     Sunset? <%= f.check_box :sunset %>
 
     <br><br>
-    
+
     <%= f.submit "Create Review" %>
 
 
