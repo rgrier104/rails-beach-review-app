@@ -2,6 +2,10 @@
 
 <%= form_for(@review) do |f| %>
 
+    <%= f.label :beach %>
+    <%= f.collection_select :beach_id, @beaches, :id, :name %><br />
+
+
     <%= f.label :rating %>
     <%= f.number_field :overall_rating, min: 1, max: 5 %>
     <br>
