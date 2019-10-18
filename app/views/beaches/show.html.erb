@@ -1,0 +1,10 @@
+<%= @beach.name %><br>
+City: <%= @beach.city %><br>
+Shore: <%= @beach.shore %><br>
+
+Reviews:
+<ul>
+<% @beach.reviews.each do |review| %>
+    <li><%= review.overall_rating %> stars: <%= review.overall_description %> (<%= link_to "Go to review", review_path(review)%>)<li>
+<% end %>
+</ul>
