@@ -3,7 +3,7 @@
 <%= form_for(@review) do |f| %>
 
     <%= f.label :beach %>
-    <%= f.collection_select :beach_id, @beaches, :id, :name %><br>
+    <%= f.collection_select :beach_id, @beaches || [], :id, :name, include_blank: true %><br>
 <!-- Nested form -->
     <p>Or create a new beach</p>
     
@@ -16,6 +16,8 @@
             <%= beach_fields.text_field :shore %>
         <% end %>
     <br><br>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
 
     <%= f.label :rating %>
     <%= f.number_field :overall_rating, min: 1, max: 5 %>
