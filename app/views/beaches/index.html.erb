@@ -1,6 +1,8 @@
 All Beaches
 <ul>
 <% @beaches.each do |beach| %>
-    <li><%= link_to beach.name, beach_path(beach) %><li>
+    <li>
+        <%= link_to beach.name, beach_path(beach) %>
+    </li>
 <% end %>
 </ul>
