@@ -11,8 +11,11 @@
 
   <body>
 
+    <%= link_to "Home", user_path(current_user) %>
+    <%= link_to "Beaches", beaches_path %>
+    <%= link_to "Reviews", reviews_path %>
     <%= link_to "Log Out", logout_path, method: :delete %>
-
+    <br><br>
     <%= yield %>
   </body>
 </html>
