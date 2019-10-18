@@ -1,0 +1,7 @@
+All Reviews
+
+<ul>
+<% @reviews.each do |review| %>
+    <li><%= review.beach.name %>: <%= review.overall_rating %> stars</li>
+<% end %>
+</ul>
