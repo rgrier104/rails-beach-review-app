@@ -1,1 +1,8 @@
 <h1>Welcome <%= @user.firstname %>!</h1>
+
+<%= link_to "Create a review", new_review_path %>
+<ul>
+    <% current_user.reviews.each do |review| %>
+        <li><%= link_to review.beach.name, review_path(review) %>: <%= review.overall_rating %> stars</li>
+    <% end %>
+</ul>
