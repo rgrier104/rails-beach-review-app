@@ -3,7 +3,7 @@
 <%= form_for(@review) do |f| %>
 
     <%= f.label :beach %>
-    <%= f.collection_select :beach_id, @beaches || [], :id, :name, include_blank: true %><br>
+    <%= f.collection_select :beach_id, @beaches || [], :id, :name, prompt: "Select beach" %><br>
 <!-- Nested form -->
     <p>Or create a new beach</p>
     
