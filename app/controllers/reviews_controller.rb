@@ -1,13 +1,23 @@
 class ReviewsController < ApplicationController
 
     def index
-        @reviews = Review.all
+        #if nested, filter for beach
+        if params[:beach_id] && beach = Beach.find_by_id(params[:beach_id])
+            @reviews = beach.reviews
+        else
+            @reviews = Review.all
+        end
     end
     
     def new
-        @review = Review.new
+        #if nested
+        if params[:beach_id] && @beach = Beach.find_by_id(params[:beach_id])
+            @review = @beach.reviews.build
+        else
+            @review = Review.new
+            @review.build_beach
+        end
         @beaches = Beach.all
-        @review.build_beach
     end
 
     def create
