@@ -2,6 +2,10 @@
 
 <%= form_for(@review) do |f| %>
 
+    <% if @review %>
+        Review for <%= @review.beach.name %>
+        <%= f.hidden_field :beach_id %>
+    <% else %>
     <%= f.label :beach %>
     <%= f.collection_select :beach_id, @beaches || [], :id, :name, prompt: "Select beach" %><br>
 <!-- Nested form -->
@@ -15,6 +19,7 @@
             <%= beach_fields.label :shore %>
             <%= beach_fields.text_field :shore %>
         <% end %>
+    <% end %>
     <br><br>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
