@@ -4,7 +4,9 @@ class Review < ApplicationRecord
 
   validates :overall_rating, presence: true
   validates :overall_description, presence: true
-  validaes :overall_rating, :parking_rating, :surfing_rating, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
+  validates :overall_rating, inclusion: { in: 1..5, message: "must be between 1 and 5" }
+  validates :parking_rating, inclusion: { in: 1..5, message: "must be between 1 and 5" }, unless: -> { parking_rating.blank? }
+  validates :surfing_rating, inclusion: { in: 1..5, message: "must be between 1 and 5" }, unless: -> { surfing_rating.blank? }
   validates_associated :beach
 
 
