@@ -4,5 +4,5 @@ class Beach < ApplicationRecord
 
     validates :name, presence: true, uniqueness: true
     validates :city, presence: true
-    validates :shore, presence: true
+    validates :shore, presence: true, inclusion: { in: %w{North East South West}}
 end
