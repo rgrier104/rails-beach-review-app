@@ -33,6 +33,21 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end
 
+    def edit
+        @review = Review.find_by(id: params[:id])
+        @beach = @review.beach
+    end
+
+    def update
+        @review = Review.find_by(id: params[:id])
+        @beach = @review.beach
+        if @review.update(review_params)
+            redirect_to review_path(@review)
+        else
+            render :edit
+        end
+    end
+
     private
 
     def review_params
