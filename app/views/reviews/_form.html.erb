@@ -1,0 +1,56 @@
+<%= form_for(@review) do |f| %>
+
+    <% if @beach %>
+        Review for <%= @beach.name %>
+        <%= f.hidden_field :beach_id %>
+    <% else %>
+    <%= f.label :beach %>
+    <%= f.collection_select :beach_id, @beaches || [], :id, :name, prompt: "Select beach" %><br>
+<!-- Nested form -->
+    <p>Or create a new beach</p>
+    
+        <%= f.fields_for :beach do |beach_fields| %>
+            <%= beach_fields.label :name %>
+            <%= beach_fields.text_field :name %>
+            <%= beach_fields.label :city %>
+            <%= beach_fields.text_field :city %>
+            <%= beach_fields.label :shore %>
+            <%= beach_fields.text_field :shore %>
+        <% end %>
+    <% end %>
+    <br><br>
+
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <%= f.label :rating %>
+    <%= f.number_field :overall_rating, min: 1, max: 5 %>
+    <br><br>
+    <%= f.label :description %>
+    <%= f.text_area :overall_description %>
+    <br><br>
+    <%= f.label :parking_rating %>
+    <%= f.number_field :parking_rating, min:1, max:5 %>
+    <br><br>
+    <%= f.label :parking_description %>
+    <%= f.text_area :parking_description %>
+    <br><br>
+    <%= f.label :surfing_rating %>
+    <%= f.number_field :surfing_rating, min:1, max:5 %>
+    <br><br>
+    <%= f.label :surfing_description %>
+    <%= f.text_area :surfing_description %>
+    <br><br>
+
+    Good for:
+    <br><br>
+    Swimming? <%= f.check_box :swimming %>
+    Snorkeling? <%= f.check_box :snorkeling %>
+    Paddleboarding? <%= f.check_box :paddleboarding %>
+    Sunrise? <%= f.check_box :sunrise %>
+    Sunset? <%= f.check_box :sunset %>
+
+    <br><br>
+
+    <%= f.submit %>
+
+    <% end %>
