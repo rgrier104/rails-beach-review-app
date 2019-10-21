@@ -3,3 +3,8 @@
 Overall Rating: <%= @review.overall_rating %><br><br>
 Descrption: <%= @review.overall_description %><br><br>
 
+<% if @review.user == current_user %>
+  <%= link_to "Edit Review", edit_review_path(@review) %>
+  <%= link_to "Delete Review", review_path(@review), method: :delete  %>
+<% end %>
+
