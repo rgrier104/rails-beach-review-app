@@ -10,5 +10,5 @@ class Review < ApplicationRecord
   validates_associated :beach
 
 
-  accepts_nested_attributes_for :beach
+  accepts_nested_attributes_for :beach, reject_if: proc { |attributes| attributes['name'].blank? }
 end
