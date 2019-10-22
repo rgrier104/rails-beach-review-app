@@ -12,6 +12,8 @@ class Review < ApplicationRecord
 
   accepts_nested_attributes_for :beach, reject_if: proc { |attributes| attributes['name'].blank? }
 
+  scope :order_by_rating, -> {order(overall_rating: :desc)}
+
   def self.average_rating
     average(:overall_rating)
   end
