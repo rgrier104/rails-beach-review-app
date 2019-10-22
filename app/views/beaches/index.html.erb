@@ -1,6 +1,6 @@
 All Beaches
 <ul>
-<% @beaches.order_by_rating.each do |beach| %>
+<% @beaches.each do |beach| %>
     <li>
         <%= link_to beach.name, beach_path(beach) %>, <%= beach.reviews.average_rating %>
     </li>

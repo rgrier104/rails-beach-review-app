@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
         if params[:beach_id] && beach = Beach.find_by_id(params[:beach_id])
             @reviews = beach.reviews
         else
-            @reviews = Review.all
+            @reviews = Review.order_by_rating.includes(:beach)
         end
     end
     

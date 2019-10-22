@@ -1,7 +1,7 @@
 All Reviews
 
 <ul>
-<% @reviews.order_by_rating.each do |review| %>
+<% @reviews.each do |review| %>
     <li>
     <%= review.beach.name %>: <%= review.overall_rating %> stars 
     (<%= link_to "Go to review", review_path(review) %>)

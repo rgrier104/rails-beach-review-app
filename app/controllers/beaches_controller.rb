@@ -1,7 +1,7 @@
 class BeachesController < ApplicationController
 
     def index
-        @beaches = Beach.all 
+        @beaches = Beach.order_by_rating.includes(:reviews)
     end
 
     def show
