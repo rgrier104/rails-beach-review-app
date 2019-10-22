@@ -12,8 +12,8 @@ class ReviewsController < ApplicationController
     
     def new
         #if nested
-        if params[:beach_id] && @beach = Beach.find_by_id(params[:beach_id])
-            @review = @beach.reviews.build
+        if params[:beach_id] && beach = Beach.find_by_id(params[:beach_id])
+            @review = beach.reviews.build
         else
             @review = Review.new
             @review.build_beach
@@ -34,11 +34,9 @@ class ReviewsController < ApplicationController
     end
 
     def edit
-        @beach = @review.beach
     end
 
     def update
-        @beach = @review.beach
         if @review.update(review_params)
             redirect_to review_path(@review)
         else
