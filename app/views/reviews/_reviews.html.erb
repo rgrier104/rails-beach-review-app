@@ -1,0 +1,8 @@
+<ul>
+<% reviews.each do |review| %>
+    <li>
+    <%= review.beach.name %>: <%= review.overall_rating %> stars 
+    (<%= link_to "Go to review", review_path(review) %>)
+    </li>
+<% end %>
+</ul>
