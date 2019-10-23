@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :beach
+  has_one_attached :image
 
   validates :overall_rating, presence: true
   validates :overall_description, presence: true
