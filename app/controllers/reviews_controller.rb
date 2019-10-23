@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :set_review, except: [:index, :new, :create]
+    before_action :redirect_if_not_owner, only: [:edit, :update]
 
     def index
         #if nested, filter for beach
@@ -58,6 +59,10 @@ class ReviewsController < ApplicationController
     def set_review
         @review = Review.find_by_id(params[:id])
         redirect_to reviews_path if !@review
+    end
+
+    def redirect_if_not_owner
+        redirect_to review_path(@review) if current_user.id != @review.user_id
     end
 
 end
