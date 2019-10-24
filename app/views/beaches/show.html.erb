@@ -2,12 +2,28 @@
 City: <%= @beach.city %><br>
 Shore: <%= @beach.shore %><br>
 
+Average Rating: <%= @beach.reviews.average_rating %><br><br>
+
+User Uploaded Photos:<br>
+
+<% @beach.reviews.each do |review| %>
+    <%= display_image(review) %>
+<% end %>
+<br>
+
 Reviews:
 <ul>
 <% @beach.reviews.each do |review| %>
     <li>
-        <%= review.overall_rating %> stars: <%= review.overall_description %> 
-        (<%= link_to "Go to review", review_path(review)%>)
+        Reviewed by <%= review.user.firstname %> on: <%= review.date_updated %>
+        <ul>
+            <li>
+                <%= review.overall_rating %> stars: <%= review.overall_description %> 
+            </li>
+            <li>
+                (<%= link_to "Go to review", review_path(review)%>)
+            </li>
+        </ul>
     </li>
 <% end %>
 </ul>
