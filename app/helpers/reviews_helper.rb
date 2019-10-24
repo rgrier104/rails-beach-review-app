@@ -13,4 +13,26 @@ module ReviewsHelper
         image_tag url_for(@review.image.variant(resize_to_fit: [300, 300]).processed) if @review.image.attached?
     end
 
+    def display_attributes(review)
+        attr_array = []
+            attr_array << "swimming" if review.swimming
+            attr_array << "snorkeling" if review.snorkeling
+            attr_array << "paddleboarding" if review.paddleboarding
+            attr_array << "sunrise" if review.sunrise
+            attr_array << "sunset" if review.sunset
+        attr_array
+    end
+
+    def create_attr_array(review)
+        display_attributes(@review).each do |attribute|
+            content_tag(:li, "#{attribute}")
+        end
+    end
+
+    def list_attr(review)
+        content_tag :ul do
+            create_attr_array(review).collect {|attr| concat(content_tag(:li, attr))}
+        end
+    end
+
 end
