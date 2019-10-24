@@ -9,10 +9,9 @@ Overall Rating (1-5): <%= @review.overall_rating %><br>
 Descrption: <%= @review.overall_description %><br><br>
 
 <%= display_parking_rating(@review) %>
-<%= display_parking_details(@review) %>
-
-Surfing Rating (1-5): <%= @review.surfing_rating %><br>
-Surfing Description: <%=@review.surfing_description %><br><br>
+<%= display_parking_description(@review) %>
+<%= display_surfing_rating(@review) %>
+<%= display_surfing_description(@review) %>
 
 
 Good for: 

@@ -39,8 +39,16 @@ module ReviewsHelper
         content_tag(:p,"Parking Rating (1-5): #{review.parking_rating}") if review.parking_rating
     end
 
-    def display_parking_details(review)
-        content_tag(:p,"Parking Details: #{review.parking_description}") if review.parking_description.present?
+    def display_parking_description(review)
+        content_tag(:p,"Parking Description: #{review.parking_description}") if review.parking_description.present?
+    end
+
+    def display_surfing_rating(review)
+        content_tag(:p,"Surfing Rating (1-5): #{review.surfing_rating}") if review.surfing_rating
+    end
+
+    def display_surfing_description(review)
+        content_tag(:p,"Surfing Description: #{review.surfing_description}") if review.surfing_description.present?
     end
 
 end
