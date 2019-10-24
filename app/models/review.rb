@@ -15,8 +15,13 @@ class Review < ApplicationRecord
   accepts_nested_attributes_for :beach, reject_if: proc { |attributes| attributes['name'].blank? }
 
   scope :order_by_rating, -> {order(overall_rating: :desc)}
+  scope :order_by_date, -> {order(updated_at: :desc)}
 
   def self.average_rating
     average(:overall_rating)
+  end
+
+  def date_updated
+    self.updated_at.strftime("%m/%d/%y")
   end
 end
