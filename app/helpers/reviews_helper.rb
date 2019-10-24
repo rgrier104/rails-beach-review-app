@@ -1,10 +1,11 @@
 module ReviewsHelper
 
     def set_or_select_beach(f)
-        if @review.beach.name
+        if @review.id
             content_tag(:h2, "Review for #{@review.beach.name}")
             f.hidden_field :beach_id
         else
+            @beaches = Beach.all
             render partial: "beachform", locals: {f: f}
         end
     end

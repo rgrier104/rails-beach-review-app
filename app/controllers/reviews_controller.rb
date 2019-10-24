@@ -19,7 +19,6 @@ class ReviewsController < ApplicationController
             @review = Review.new
             @review.build_beach
         end
-        @beaches = Beach.all
     end
 
     def create

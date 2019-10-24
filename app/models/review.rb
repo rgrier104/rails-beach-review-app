@@ -8,7 +8,7 @@ class Review < ApplicationRecord
   validates :overall_rating, inclusion: { in: 1..5, message: "must be between 1 and 5" }
   validates :parking_rating, inclusion: { in: 1..5, message: "must be between 1 and 5" }, unless: -> { parking_rating.blank? }
   validates :surfing_rating, inclusion: { in: 1..5, message: "must be between 1 and 5" }, unless: -> { surfing_rating.blank? }
-  validates :beach, uniqueness: { scope: :user, message: "has already been reviewed by you"}
+  validates :beach, uniqueness: { scope: :user, message: "has already been reviewed by you"}, on: :create
   validates_associated :beach
 
 
