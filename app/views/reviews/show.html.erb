@@ -1,12 +1,16 @@
-<%= @review.beach.name %> Review
-<br><br>
+<h1><%= @review.beach.name %> Review</h1>
+<br>
  
  <%= display_image %>
 
-<br>
+<br><br>
 
-Overall Rating: <%= @review.overall_rating %><br><br>
+Overall Rating: <%= @review.overall_rating %><br>
 Descrption: <%= @review.overall_description %><br><br>
+
+Good for: 
+
+<%= list_attr(@review) %>
 
 <% if @review.user == current_user %>
   <%= link_to "Edit Review", edit_review_path(@review) %>
