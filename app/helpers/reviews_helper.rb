@@ -10,8 +10,8 @@ module ReviewsHelper
         end
     end
 
-    def display_image
-        image_tag url_for(@review.image.variant(resize_to_fit: [300, 300]).processed) if @review.image.attached?
+    def display_image(review)
+        image_tag url_for(review.image.variant(resize_to_fit: [300, 300]).processed) if review.image.attached?
     end
 
     def display_attributes(review)
