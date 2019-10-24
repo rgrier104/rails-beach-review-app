@@ -35,4 +35,12 @@ module ReviewsHelper
         end
     end
 
+    def display_parking_rating(review)
+        content_tag(:p,"Parking Rating (1-5): #{review.parking_rating}") if review.parking_rating
+    end
+
+    def display_parking_details(review)
+        content_tag(:p,"Parking Details: #{review.parking_description}") if review.parking_description.present?
+    end
+
 end
