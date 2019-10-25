@@ -4,6 +4,9 @@ module ReviewsHelper
         if @review.id
             content_tag(:h2, "Review for #{@review.beach.name}")
             f.hidden_field :beach_id
+        elsif params[:beach_id]
+            @beaches = Beach.all
+            f.collection_select :beach_id, @beaches || [], :id, :name, prompt: "Select beach"
         else
             @beaches = Beach.all
             render partial: "beachform", locals: {f: f}
@@ -11,7 +14,7 @@ module ReviewsHelper
     end
 
     def review_index
-        if @beach.id
+        if params[:beach_id]
             render partial: "beachreviews", locals: {beach: @beach }
         else
             render partial: "reviews", locals: {reviews: @reviews }
