@@ -3,30 +3,14 @@
     <h4><%= @beach.shore %> Shore</h4>
 
     <p>Average Rating: <%= @beach.reviews.average_rating %></p>
-</div>
 
+    <%= link_to "View all reviews for #{@beach.name}", beach_reviews_path(@beach.id) %>
+    <br>
+    <%= link_to "Create a review for #{@beach.name}", new_beach_review_path(@beach.id) %>
+</div>
+<br>
 <div class='container-fluid'>
-    <div class='row'>
-        <div class='col'>
-            Reviews:
-            <ul>
-            <% @beach.reviews.each do |review| %>
-                <li>
-                    Reviewed by <%= review.user.firstname %> on: <%= review.date_updated %>
-                    <ul>
-                        <li>
-                            <%= review.overall_rating %> stars: <%= review.overall_description %> 
-                        </li>
-                        <li>
-                            (<%= link_to "Go to review", review_path(review)%>)
-                        </li>
-                    </ul>
-                </li>
-            <% end %>
-            </ul>
-        </div>
-        <div class='col'>
-        User Uploaded Photos:<br>
+        Photos from reviewers:<br>
         <% @beach.reviews.each do |review| %>
             <%= display_image(review) %>
         <% end %>
