@@ -1,29 +1,36 @@
-<h1><%= @beach.name %></h1>
-<h4>City: <%= @beach.city %></h4>
-<h4>Shore: <%= @beach.shore %></h4>
+<div class='container'>
+    <h1><%= @beach.name %>, <%= @beach.city %></h1>
+    <h4><%= @beach.shore %> Shore</h4>
 
-Average Rating: <%= @beach.reviews.average_rating %><br><br>
+    <p>Average Rating: <%= @beach.reviews.average_rating %></p>
+</div>
 
-User Uploaded Photos:<br>
-
-<% @beach.reviews.each do |review| %>
-    <%= display_image(review) %>
-<% end %>
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col'>
+            Reviews:
+            <ul>
+            <% @beach.reviews.each do |review| %>
+                <li>
+                    Reviewed by <%= review.user.firstname %> on: <%= review.date_updated %>
+                    <ul>
+                        <li>
+                            <%= review.overall_rating %> stars: <%= review.overall_description %> 
+                        </li>
+                        <li>
+                            (<%= link_to "Go to review", review_path(review)%>)
+                        </li>
+                    </ul>
+                </li>
+            <% end %>
+            </ul>
+        </div>
+        <div class='col'>
+        User Uploaded Photos:<br>
+        <% @beach.reviews.each do |review| %>
+            <%= display_image(review) %>
+        <% end %>
+        </div>
+    </div>
+</div>
 <br>
-
-Reviews:
-<ul>
-<% @beach.reviews.each do |review| %>
-    <li>
-        Reviewed by <%= review.user.firstname %> on: <%= review.date_updated %>
-        <ul>
-            <li>
-                <%= review.overall_rating %> stars: <%= review.overall_description %> 
-            </li>
-            <li>
-                (<%= link_to "Go to review", review_path(review)%>)
-            </li>
-        </ul>
-    </li>
-<% end %>
-</ul>

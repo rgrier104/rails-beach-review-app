@@ -11,10 +11,11 @@
 
   <body>
     <% if logged_in? %>
-    <nav class='navbar'>
+    <nav class='navbar navbar-light border' style="background-color: #e3f2fd;">
       <%= link_to "Home", user_path(current_user) %>
-      <%= link_to "Beaches", beaches_path %>
-      <%= link_to "Reviews", reviews_path %>
+      <%= link_to "All Beaches", beaches_path %>
+      <%= link_to "All Reviews", reviews_path %>
+      <%= link_to "Create Review", new_review_path %>
       <%= link_to "Log Out", logout_path, method: :delete %>
     </nav>
     <% end %>

@@ -1,10 +1,10 @@
 <h1><%= @review.beach.name %> Review</h1>
 <br>
- 
+ <div class='container'>
  <%= display_image(@review) %>
-
+</div>
 <br><br>
-
+<div class='container'>
 Overall Rating (1-5): <%= @review.overall_rating %><br>
 Descrption: <%= @review.overall_description %><br><br>
 
@@ -23,3 +23,4 @@ Good for:
   <%= link_to "Delete Review", review_path(@review), method: :delete  %>
 <% end %>
 
+</div>
