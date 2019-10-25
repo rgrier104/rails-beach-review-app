@@ -4,8 +4,8 @@ class ReviewsController < ApplicationController
 
     def index
         #if nested, filter for beach
-        if params[:beach_id] && beach = Beach.find_by_id(params[:beach_id])
-            @reviews = beach.reviews
+        if params[:beach_id] && @beach = Beach.find_by_id(params[:beach_id])
+            @reviews = @beach.reviews
         else
             @reviews = Review.order_by_date.includes(:beach)
         end

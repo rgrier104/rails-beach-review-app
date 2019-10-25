@@ -10,17 +10,25 @@ module ReviewsHelper
         end
     end
 
+    def review_index
+        if @beach.id
+            render partial: "beachreviews", locals: {beach: @beach }
+        else
+            render partial: "reviews", locals: {reviews: @reviews }
+        end
+    end
+
     def display_image(review)
         image_tag url_for(review.image.variant(resize_to_fit: [200, 200]).processed) if review.image.attached?
     end
 
     def display_attributes(review)
         attr_array = []
-            attr_array << "swimming" if review.swimming
-            attr_array << "snorkeling" if review.snorkeling
-            attr_array << "paddleboarding" if review.paddleboarding
-            attr_array << "sunrise" if review.sunrise
-            attr_array << "sunset" if review.sunset
+            attr_array << "Swimming" if review.swimming
+            attr_array << "Snorkeling" if review.snorkeling
+            attr_array << "Paddleboarding" if review.paddleboarding
+            attr_array << "Sunrise" if review.sunrise
+            attr_array << "Sunset" if review.sunset
         attr_array
     end
 
