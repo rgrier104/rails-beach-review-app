@@ -4,32 +4,23 @@
     <br><br>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
+  
+    Overall Rating (1-5): <%= f.number_field :overall_rating, min: 1, max: 5 %>
+    Overall Description: <%= f.text_area :overall_description %>
+    <br>
+    Parking Rating: <%= f.number_field :parking_rating, min:1, max:5 %>
 
-    <%= f.label :rating %>
-    <%= f.number_field :overall_rating, min: 1, max: 5 %>
+    Parking Description: <%= f.text_area :parking_description %>
+    <br>
+    Surfing Rating: <%= f.number_field :surfing_rating, min:1, max:5 %>
+    Surfing Description: <%= f.text_area :surfing_description %>
     <br><br>
-    <%= f.label :description %>
-    <%= f.text_area :overall_description %>
-    <br><br>
-    <%= f.label :parking_rating %>
-    <%= f.number_field :parking_rating, min:1, max:5 %>
-    <br><br>
-    <%= f.label :parking_description %>
-    <%= f.text_area :parking_description %>
-    <br><br>
-    <%= f.label :surfing_rating %>
-    <%= f.number_field :surfing_rating, min:1, max:5 %>
-    <br><br>
-    <%= f.label :surfing_description %>
-    <%= f.text_area :surfing_description %>
-    <br><br>
-
-    Good for:
-    <br><br>
-    Swimming? <%= f.check_box :swimming %>
-    Snorkeling? <%= f.check_box :snorkeling %>
-    Paddleboarding? <%= f.check_box :paddleboarding %>
-    Sunrise? <%= f.check_box :sunrise %>
+    Good spot for (select as many as you want):
+    <br>
+    Swimming? <%= f.check_box :swimming %><br>
+    Snorkeling? <%= f.check_box :snorkeling %><br>
+    Paddleboarding? <%= f.check_box :paddleboarding %><br>
+    Sunrise? <%= f.check_box :sunrise %><br>
     Sunset? <%= f.check_box :sunset %>
 
     <br><br>
