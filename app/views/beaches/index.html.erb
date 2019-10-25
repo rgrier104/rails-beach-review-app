@@ -1,5 +1,11 @@
-All Beaches
+<h3>All Beaches</h3>
 <br>
+    <%= form_tag("/beaches", method: "get") do %>
+        Filter by shore: <%= select_tag "shore", options_for_select(["North","South","East","West"]), include_blank: true %>
+        <%= submit_tag "Filter" %>
+    <% end %>
+    <%= link_to "Clear Filter", beaches_path %>
+
 <ul>
 <% @beaches.each do |beach| %>
     <li>

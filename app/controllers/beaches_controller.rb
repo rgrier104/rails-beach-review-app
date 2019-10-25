@@ -1,7 +1,11 @@
 class BeachesController < ApplicationController
 
     def index
-        @beaches = Beach.order_by_rating.includes(:reviews)
+        if !params[:shore].blank?
+            @beaches = Beach.by_shore(params[:shore])
+        else
+            @beaches = Beach.order_by_rating.includes(:reviews)
+        end
     end
 
     def show
