@@ -7,5 +7,6 @@ class Beach < ApplicationRecord
     validates :shore, inclusion: { in: %w{North East South West}, message: "must be either North, South, East, or West."}
 
     scope :order_by_rating, -> {left_joins(:reviews).group(:id).order("avg(overall_rating) desc")}
+    scope :by_shore, -> (shore_filter) {where("shore = ?", shore_filter)}
 
 end
