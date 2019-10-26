@@ -24,3 +24,7 @@
      width: 800px;
      margin: auto;
  }
+
+ .review_card {
+     display: flex;
+ }
