@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ .rating {
+     width: 40px;
+     padding: 0;
+     text-align: center;
+ }
+
+ .review_form {
+     width: 800px;
+     margin: auto;
+ }

@@ -1,14 +1,25 @@
     
-    <%= f.label :beach %>
-    <%= f.collection_select :beach_id, @beaches || [], :id, :name, prompt: "Select beach" %><br>
+    <%= f.collection_select :beach_id, @beaches || [], :id, :name, prompt: "Select beach", class:'form-control' %>
+    <br><br>
+
 <!-- Nested form -->
-    <p>Or create a new beach</p>
+    <div class='container border bg-light'>
+    <p class='lead'>Or create a new beach</p>
     
         <%= f.fields_for :beach do |beach_fields| %>
-            <%= beach_fields.label :name %>
-            <%= beach_fields.text_field :name %>
-            <%= beach_fields.label :city %>
-            <%= beach_fields.text_field :city %>
-            <%= beach_fields.label :shore %>
-            <%= beach_fields.text_field :shore %>
+            <div class="form-row form-group">
+                <div class="col">
+                    <%= beach_fields.label :name %>
+                    <%= beach_fields.text_field :name, class:'form-control' %>
+                </div>
+                <div class="col">
+                    <%= beach_fields.label :city %>
+                    <%= beach_fields.text_field :city, class:'form-control' %>
+                </div>
+                <div class="col">
+                    <%= beach_fields.label :shore, "Shore (North, South, East, West)" %>
+                    <%= beach_fields.text_field :shore, class:'form-control' %>
+                </div>
+            </div>
         <% end %>
+        </div>

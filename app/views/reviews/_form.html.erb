@@ -1,31 +1,59 @@
-<%= form_for(@review) do |f| %>
+<div class='container'>
+<%= form_for(@review, html: {class:'review_form'}) do |f| %>
 
     <%= set_or_select_beach(f) %>
     <br><br>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
-  
-    Overall Rating (1-5): <%= f.number_field :overall_rating, min: 1, max: 5 %>
-    Overall Description: <%= f.text_area :overall_description %>
-    <br>
-    Parking Rating: <%= f.number_field :parking_rating, min:1, max:5 %>
-
-    Parking Description: <%= f.text_area :parking_description %>
-    <br>
-    Surfing Rating: <%= f.number_field :surfing_rating, min:1, max:5 %>
-    Surfing Description: <%= f.text_area :surfing_description %>
+    
+    <div class="form-row form-group">
+        <div class="col-3">
+            <%= f.label "Overall Rating (1-5):" %>
+            <%= f.number_field :overall_rating, min: 1, max: 5, class:'form-control rating'  %>
+        </div>
+        <div class="col-9">
+            <%= f.label "Overall Description:" %> 
+            <%= f.text_area :overall_description, class:'form-control' %>
+        </div>
+    </div>
+    <div class="form-row form-group">
+        <div class="col-3">
+            <%= f.label "Parking Rating (1-5):" %> 
+            <%= f.number_field :parking_rating, min:1, max:5, class:'form-control rating' %>
+        </div>
+        <div class="col-9">
+            <%= f.label "Parking Description:" %>
+            <%= f.text_area :parking_description, class:'form-control' %>
+        </div>
+    </div>
+    <div class="form-row form-group">
+        <div class="col-3">
+            <%= f.label "Surfing Rating (1-5):" %>
+            <%= f.number_field :surfing_rating, min:1, max:5, class:'form-control rating' %>
+        </div>
+        <div class="col-9">
+            <%= f.label "Surfing Description:" %> 
+            <%= f.text_area :surfing_description,  class:'form-control' %>
+        </div>
+    </div>
     <br><br>
-    Good spot for (select as many as you want):
+    <div class='container border bg-light'>
+        Good spot for: (check all that apply)
+        <br><br>
+        <div class='form-row form-group'>
+            <div class='col-3'>
+                <%= f.check_box :swimming %> Swimming? <br>
+                <%= f.check_box :snorkeling %> Snorkeling? <br>
+                <%= f.check_box :paddleboarding %> Paddleboarding? <br>
+            </div>
+            <div class='col-9'>
+                <%= f.check_box :sunrise %> Sunrise? <br>
+                <%= f.check_box :sunset %> Sunset? 
+            </div>
+        </div>
+    </div>
     <br>
-    Swimming? <%= f.check_box :swimming %><br>
-    Snorkeling? <%= f.check_box :snorkeling %><br>
-    Paddleboarding? <%= f.check_box :paddleboarding %><br>
-    Sunrise? <%= f.check_box :sunrise %><br>
-    Sunset? <%= f.check_box :sunset %>
-
-    <br><br>
-
-    <%= f.label :image, "Upload Image" %> 
+    <%= f.label :image, "Upload Image:" %> 
     <%= f.file_field :image %>
     
     <br><br>
@@ -33,3 +61,4 @@
     <%= f.submit %>
 
     <% end %>
+</div>
