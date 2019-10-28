@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Beach Review App
 
-Things you may want to cover:
+This app allows users to easily view, create, edit, and delete reviews for different beaches in Oahu.
 
-* Ruby version
+## Install Instructions
 
-* System dependencies
+execute
+ $ bundle install
 
-* Configuration
+## Usage
 
-* Database creation
+1. Run rake db:migrate
+2. Run shotgun
+3. Sign Up to start using app.
 
-* Database initialization
+## Contributing
 
-* How to run the test suite
+Bug reports and pull requests are welcome on GitHub at https://github.com/'rgrier104'/sinatra-beach-review-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
-
-* ...
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
