@@ -1,16 +1,12 @@
 <h3>All Reviews</h3>
-<ul>
+
 <% reviews.each do |review| %>
-    <li>
-    <%= review.beach.name %>: <%= review.overall_rating %> stars 
-        <ul>
-            <li>
-                Last updated at: <%= review.date_updated %>
-            </li>
-            <li>
-                <%= link_to "View full review", review_path(review) %>
-            </li>
-        </ul>
-    </li>
+    <div class='card review_card' style="width: 18rem;">
+        <div class="card-body text-center">
+            <h5 class='card-title'><%= review.beach.name %>: <%= review.overall_rating %> stars </h5>
+                <p class='card-text'>Last updated at: <%= review.date_updated %></p>
+
+                <%= link_to "View full review", review_path(review), class:'card-link' %>
+        </div>
+    </div>
 <% end %>
-</ul>

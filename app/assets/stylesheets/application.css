@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
  .rating {
      width: 40px;
      padding: 0;
@@ -26,5 +27,5 @@
  }
 
  .review_card {
-     display: flex;
+     display: inline-block;
  }
