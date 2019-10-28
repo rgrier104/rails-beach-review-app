@@ -2,7 +2,7 @@
 
 # Beach Review App
 
-This app allows users to easily view, create, edit, and delete reviews for different beaches in Oahu.
+This app allows users to review beaches in Hawaii. Users can easily create, edit, and delete their own reviews as well as view reviews others have creaded.
 
 ## Install Instructions
 

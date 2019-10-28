@@ -1,20 +1,20 @@
 <h1><%= @review.beach.name %> Review</h1>
 <br>
  <div class='container'>
- <%= display_image(@review) %>
+  <%= display_image(@review) %>
 </div>
-<br><br>
+<br>
 <div class='container'>
-Overall Rating (1-5): <%= @review.overall_rating %><br>
-Descrption: <%= @review.overall_description %><br><br>
+  <h3>Overall Rating (1-5): <%= @review.overall_rating %></h3>
+  Descrption: <%= @review.overall_description %><br><br>
 
-<%= display_parking_rating(@review) %>
-<%= display_parking_description(@review) %>
-<%= display_surfing_rating(@review) %>
-<%= display_surfing_description(@review) %>
+  <h3><%= display_parking_rating(@review) %></h3>
+    <%= display_parking_description(@review) %>
+  <h3><%= display_surfing_rating(@review) %></h3>
+    <%= display_surfing_description(@review) %>
 
 
-Good for: 
+<h3>Good for: </h3>
 
 <%= list_attr(@review) %>
 
