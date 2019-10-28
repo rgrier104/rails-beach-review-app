@@ -26,6 +26,7 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to review_path(@review)
         else
+            @review.build_beach
             render :new
         end
     end
