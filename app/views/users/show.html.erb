@@ -1,5 +1,9 @@
 <h1>Aloha <%= @user.firstname %>!</h1>
-
-<%= link_to "Create a review", new_review_path %>
+<br>
+<h3>Your Reviews</h3>
 
 <%= render partial: "/reviews/reviews", locals: {reviews: current_user.reviews} %>
+
+<br><br>
+
+<%= link_to "Create new review", new_review_path %>
