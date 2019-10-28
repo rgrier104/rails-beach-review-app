@@ -1,6 +1,6 @@
   
 <% if object.try(:errors).try(:any?) %>
-  <div id="error_explanation">
+  <div id="error_explanation" class='text-danger review_form'>
     <h2><%= pluralize(object.errors.count, "error") %> prohibited this from being saved:</h2>
 
     <ul>
