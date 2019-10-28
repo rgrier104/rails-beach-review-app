@@ -1,7 +1,12 @@
-<div class='container'>
+<div class='container mb-5'>
 <%= form_for(@review, html: {class:'review_form'}) do |f| %>
 
     <%= set_or_select_beach(f) %>
+    <br><br>
+
+    <%= f.label :image, "Upload Image:" %> 
+    <%= f.file_field :image %>
+    
     <br><br>
 
     <%= f.hidden_field :user_id, value: current_user.id %>
@@ -38,7 +43,7 @@
     </div>
     <br><br>
     <div class='container border bg-light'>
-        Good spot for: (check all that apply)
+        Good beach for: (check all that apply)
         <br><br>
         <div class='form-row form-group'>
             <div class='col-3'>
@@ -53,10 +58,6 @@
         </div>
     </div>
     <br>
-    <%= f.label :image, "Upload Image:" %> 
-    <%= f.file_field :image %>
-    
-    <br><br>
 
     <%= f.submit %>
 
