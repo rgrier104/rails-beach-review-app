@@ -22,7 +22,7 @@ module ReviewsHelper
     end
 
     def display_image(review)
-        image_tag url_for(review.image.variant(resize_to_fit: [200, 200]).processed) if review.image.attached?
+        image_tag url_for(review.image.variant(resize_to_fit: [400, 400]).processed) if review.image.attached?
     end
 
     def display_attributes(review)
